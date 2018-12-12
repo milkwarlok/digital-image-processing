@@ -20,9 +20,9 @@ void draw(){
       float r = red(c);
       float g = green(c);
       float b = blue(c);
-      float rNew = map(0, 255, bottomColorBorder, topColorBorder, r);
-      float gNew = map(0, 255, bottomColorBorder, topColorBorder, g);
-      float bNew = map(0, 255, bottomColorBorder, topColorBorder, b);
+      float rNew = map(r, 0, 255, bottomColorBorder, topColorBorder);
+      float gNew = map(g, 0, 255, bottomColorBorder, topColorBorder);
+      float bNew = map(b, 0, 255, bottomColorBorder, topColorBorder);
       butterflyGrey.pixels[index] = color(rNew, gNew, bNew);
       index++;
     }
@@ -31,13 +31,14 @@ void draw(){
     index = 0;
     image(butterflyColorful, 0, 0);
     image(butterflyGrey, 583, 0);
+    text("Color is mapped to " + bottomColorBorder + " - " + topColorBorder, 593, 10);
 }
 
 void mouseWheel(MouseEvent event) {
     float e = event.getCount();
-    range += 5*e;
+    range += e;
     if(range < -127) range = 127;
-    if(range > 127) range = -126;
+    if(range > 127) range = -127;
     bottomColorBorder = 128 - range;
     topColorBorder = 128 + range;
 }
