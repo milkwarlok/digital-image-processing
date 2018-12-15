@@ -12,6 +12,7 @@ void setup(){
     float r = red(c);
     float g = green(c);
     float b = blue(c);
+    int avg = (int)((r+g+b)/3);
     c = color((r+g+b)/3);
     butterflyGrey.pixels[index] = c;
     index++;

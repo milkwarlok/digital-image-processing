@@ -17,11 +17,11 @@ void draw(){
     float g = green(c);
     float b = blue(c);
     if(redOn)
-      butterflyInverse.pixels[index] = color(255 - r, 0, 0);
+      butterflyInverse.pixels[index] = color(r, 0, 0);
     else if(greenOn)
-      butterflyInverse.pixels[index] = color(0, 255 - g, 0);
+      butterflyInverse.pixels[index] = color(0, g, 0);
     else if(blueOn)
-      butterflyInverse.pixels[index] = color(0, 0, 255 - b);
+      butterflyInverse.pixels[index] = color(0, 0, b);
     index++;
   }
   butterflyInverse.updatePixels();
